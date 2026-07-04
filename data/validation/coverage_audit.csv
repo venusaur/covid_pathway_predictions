@@ -1,0 +1,4 @@
+library,n_terms,library_universe_size,our_genes_covered,our_genes_total,coverage_fraction
+GO_Biological_Process_2023,5406,14697,304,332,0.916
+KEGG_2021_Human,320,8078,154,332,0.464
+Reactome_2022,1816,10488,228,332,0.687

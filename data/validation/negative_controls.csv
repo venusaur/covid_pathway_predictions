@@ -1,0 +1,4 @@
+bait,known_preys,top_candidates,PLK1_predicted,TOMM70_predicted,note
+E,"SLC44A2,ZC3H18,CWC27,BRD2,BRD4,AP3B1","BRD9,JMJD6,NSD3,BRDT,ZMYND8",False,False,"stays within bromodomain family, matches E real BRD2/4 biology"
+M,30 membrane/ER/mito preys incl. TUBGCP2/3,"MYOM2,TMEM33,RTN3,ATL1/3,TUBGCP5/6",False,False,"TUBGCP5/6 hits explained by Ms own TUBGCP2/3 preys, not a hub jump"
+Orf7a,"MDN1,HEATR3","RPF2,RRS1,NLE1,CNEP1R1",False,False,"ribosome-biogenesis specific, matches MDN1 biology"
