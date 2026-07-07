@@ -1,104 +1,139 @@
 # SARS-CoV-2 Host Interactome: Pathway & Missing-Component Analysis
 
-Analysis built on the real protein-protein interaction (PPI) data from Gordon et al. 2020 (full citation and other data sources below).
+A computational reanalysis of the Gordon et al. 2020 SARS-CoV-2–human protein interactome, with
+an unusually heavy emphasis on **not fooling yourself**: every prediction is put through a
+14-test adversarial validation suite before it's believed.
+
+> **Headline:** guilt-by-association network expansion looks validated under internal
+> cross-validation (11.1% recall) but performs at chance against an independent dataset
+> (0.07% vs 0.02% null). The apparent skill is literature-co-mention bias. One prediction
+> survived everything computation can throw at it (**Nsp13 → PLK1 / the centrosome**), reproducing
+> even on an independent physical-interaction network, but it hits a hard confirmation ceiling
+> and now needs a wet-lab co-IP. A second (Nsp4 → TOMM70) was **withdrawn** on scrutiny.
+
+---
+
+## Reading guide
+
+The narrative lives in a few documents; read them in this order depending on how deep you want to go.
+
+| Read | What it is | For |
+|---|---|---|
+| **[`report/findings_report.html`](report/findings_report.html)** (or `.pdf`) | The polished, figure-by-figure report: 9 figures, the full 14-test ledger, the experimental program. **The main readable.** | Everyone (start here) |
+| **[`validation/VALIDATION_REPORT.md`](validation/VALIDATION_REPORT.md)** | Per-test verdicts and honest caveats about the validation's own limits | The methodology in detail |
+| **This README** | Overview, repo map, how to run, condensed findings | Orientation + reproduction |
+| **[`experimental/`](experimental/)** docs | Where the surviving hypothesis goes next (wet-lab + bias-free computation) | Follow-up / next steps |
+
+The `experimental/` folder has its own set of readables:
+- [`EXPERIMENTAL_DESIGN.md`](experimental/EXPERIMENTAL_DESIGN.md): the reciprocal co-IP, with direct-vs-bridged disambiguation
+- [`COMPUTATIONAL_PATHWAYS.md`](experimental/COMPUTATIONAL_PATHWAYS.md): remaining bias-free computational avenues
+- [`FUNCTIONAL_GENOMICS.md`](experimental/FUNCTIONAL_GENOMICS.md): PLK1 is not a CRISPR host-factor hit (independent phenotype line)
+- [`ALPHAFOLD_PROTOCOL.md`](experimental/ALPHAFOLD_PROTOCOL.md): the 7-job structural run matrix + interpretation framework
+- [`ALPHAFOLD_TUTORIAL.md`](experimental/ALPHAFOLD_TUTORIAL.md): hands-on, run-it-yourself walkthrough (no experience needed)
+- [`literature/`](experimental/literature/): published-literature dive against the open questions, with a full source log ([`LITERATURE_REVIEW.md`](experimental/literature/LITERATURE_REVIEW.md), [`SOURCES.md`](experimental/literature/SOURCES.md))
+
+---
+
+## Repository structure
+
+```
+README.md               ← you are here
+requirements.txt
+pipeline/               core analysis, run in order from the project root
+  fetch_network.py        NDEx  -> data/interactome.csv (the real 332 interactions)
+  enrichment.py           Enrichr pathway enrichment -> data/pathways_*.csv
+  predict_missing.py      STRING guilt-by-association -> data/predicted_missing_components.csv
+  visualize.py            overall + per-bait pathway figures
+  visualize_prediction.py network diagrams for the two headline predictions
+  preflight.py            data-integrity gate (run before enrichment/prediction)
+validation/             the 14-test adversarial suite (01..13 + inline negative controls)
+  VALIDATION_REPORT.md    full per-test writeup
+experimental/           post-ceiling follow-up: co-IP design, AlphaFold, functional genomics
+  alphafold_inputs/       ready-to-run FASTAs + query_sequences.txt
+data/                   inputs + all computed tables
+  validation/             per-test CSV outputs
+output/                 all figures (PNG)
+  validation/             per-test figures
+report/                 the polished findings report (HTML + PDF)
+```
+
+Everything runs against **live public APIs** (no credentials), so scripts need internet access
+and results can shift slightly if the underlying databases update. Two large re-downloadable
+intermediates (`data/huri_edges.csv`, the Stukalov supplement) are git-ignored and regenerated on
+demand.
+
+---
+
+## Quickstart
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+
+# core pipeline, run from the project root, in order
+python3 pipeline/fetch_network.py       # -> data/interactome.csv
+python3 pipeline/preflight.py           # data-integrity gate (fails loudly on a broken join)
+python3 pipeline/enrichment.py          # -> data/pathways_overall.csv, pathways_per_bait.csv
+python3 pipeline/predict_missing.py     # -> data/predicted_missing_components.csv
+python3 pipeline/visualize.py           # -> output/*.png
+python3 pipeline/visualize_prediction.py
+
+# validation suite (each writes to data/validation/ and output/validation/)
+for f in validation/[0-9]*.py; do python3 "$f"; done
+```
+
+All scripts assume the **project root** as the working directory.
+
+---
+
+## Findings (condensed; full version in the report)
+
+**Pathway enrichment** recovers the paper's own biology (centrosome/mitosis on Nsp13, DNA
+replication on Nsp1, mitochondrial import on Nsp4/Orf9b/Orf9c). But GO/KEGG/Reactome annotate only
+68.7%/46.4%/91.6% of the 332 genes, unevenly across baits, and broadening to six libraries barely
+helps (95.2%→96.4%; 12 of 16 unannotated genes stay dark). Cross-bait comparisons are never quite
+on equal footing.
+
+**The method mostly doesn't generalize.** Internal holdout suggested skill (11.1% recall vs
+0% null), but against Stukalov et al.'s independent AP-MS as ground truth, mean recall collapsed to
+0.07% (vs 0.02% null) across 18 baits: chance. The diagnosis: holdout recall tracks how densely a
+bait's preys are already clustered in STRING (ρ +0.65), and that clustering is driven by the
+literature *text-mining* channel (ρ +0.78) more than hard experimental evidence (ρ +0.50). The
+method rewards fame, not evidence, so it looks good on already-famous proteins and fails on novel
+biology.
+
+**The two headline predictions:**
+- **Nsp13 → PLK1**: survived every internal test *and* reproduced on IntAct's independent
+  physical-interaction graph (6/40 Nsp13 preys are direct PLK1 partners, p=0.0005). Not a
+  STRING/text-mining artifact. But it's not directly confirmed in any viral interactome, HuRI
+  (unbiased Y2H) is blind to the centrosome so can't adjudicate it, and it's not a CRISPR
+  host-factor hit, so the biology, if real, is centrosome/cell-cycle perturbation, not an
+  essential host factor. Motif analysis (no PLK1 docking motif) points to a **bridged model**
+  (Nsp13 → CEP scaffolds → PLK1). Confirmation now requires a wet-lab co-IP.
+- **Nsp4 → TOMM70**: **withdrawn.** Threshold-fragile, TOMM70's real viral partner is ORF9b (7
+  papers), and it fails to reproduce on IntAct. Four independent lines agree.
+
+**Caveat.** These are guilt-by-association predictions: "fits the same complex," not "binds the
+virus." Treat them as hypotheses to prioritize, exactly as the original paper treated its drug
+candidates. Only checks against independent data can *confirm* rather than fail-to-reject;
+none did.
+
+---
 
 ## Data sources
 
-All five are live public APIs queried at run time - no credentials required, but this means the scripts need internet access and will vary slightly if the underlying databases update.
+All are live public APIs / repositories queried at run time.
 
-| Source | Used for | Used by |
-|---|---|---|
-| [NDEx](https://www.ndexbio.org/) - network `HEK293T_SARS-CoV-2`, UUID `43803262-6d69-11ea-bfdc-0ac135e8bacf` | The real 332 SARS-CoV-2-human interactions (the dataset behind Fig. 3 of Gordon et al. 2020) | `fetch_network.py` |
-| [Enrichr](https://maayanlab.cloud/Enrichr/) (via `gseapy`) - GO Biological Process, KEGG, Reactome libraries | Pathway enrichment per bait and overall; library gene-set coverage (denominator audit) | `enrichment.py`, `validation/02_coverage_audit.py`, `validation/03_strip_circular.py` |
-| [STRING](https://string-db.org/) REST API | Network-expansion (`add_nodes`) guilt-by-association scoring to predict missing components | `predict_missing.py`, `validation/04_threshold_sweep.py`, `validation/05_null_model.py`, `validation/06_holdout_precision_recall.py` |
-| [UniProt](https://www.uniprot.org/) REST API (`rest.uniprot.org`) | Identifier integrity check - confirming each prey's UniProt accession resolves to its recorded HGNC gene symbol | `validation/01_identifier_integrity.py` |
-| [IntAct](https://www.ebi.ac.uk/intact/) via PSICQUIC (EBI) | Independent external validation - checking whether other SARS-CoV-2 interactome papers (Stukalov, Gao, Chen, Brandherm, Thorne, etc.) confirm a predicted edge | `validation/07_external_validation.py` |
-
-The underlying study this whole analysis is built on:
-
-> Gordon, D.E. et al. **"A SARS-CoV-2 protein interaction map reveals targets for drug repurposing."** *Nature* 583, 459-468 (2020). https://doi.org/10.1038/s41586-020-2286-9
-
-The paper's Krogan-lab AP-MS experiments identified 332 high-confidence interactions between 27 SARS-CoV-2 viral proteins and human host proteins. This project pulls that real dataset (not simulated) and layers three things on top of it:
-
-1. **Pathway enrichment** - which biological pathways/complexes each viral protein's host targets fall into.
-2. **Missing-component prediction** - guilt-by-association network expansion to hypothesize additional host proteins that plausibly interact with each viral protein but weren't detected in the original screen.
-3. **Adversarial validation** - 8 tests (identifier integrity, coverage audit, circularity, negative controls, threshold robustness, null model, held-out precision/recall, external confirmation) checking whether the predictions in (2) are real or artifacts.
-
-## Pipeline
-
-Run in order from the project root (with the venv activated):
-
-```bash
-source .venv/bin/activate
-
-python3 fetch_network.py       # -> data/interactome.csv
-python3 enrichment.py          # -> data/pathways_overall.csv, data/pathways_per_bait.csv
-python3 predict_missing.py     # -> data/predicted_missing_components.csv
-python3 visualize.py           # -> output/overall_top_pathways.png, output/bait_pathway_heatmap.png
-python3 visualize_prediction.py  # -> output/predicted_nsp13_plk1.png, output/predicted_nsp4_tomm70.png
-```
-
-| Script | Purpose |
+| Source | Used for |
 |---|---|
-| `fetch_network.py` | Downloads the real NDEx network (CX format), parses nodes/edges, keeps only viral(bait)-human(prey) interactions, writes a flat interaction table with MiST/BFDR/AvgSpec confidence scores. |
-| `enrichment.py` | Runs Enrichr pathway enrichment (GO BP, KEGG, Reactome) on the full 332-protein set and separately on each viral protein's own prey set (baits with < 3 preys are skipped). |
-| `predict_missing.py` | For each bait with >= 5 known preys, queries STRING's network-expansion API (`add_nodes`) to find proteins most connected to that prey set. Any returned protein not already in the 332-interaction dataset is logged as a candidate "missing component," ranked by number of edges to known preys and STRING confidence. Also flags candidates that are already a confirmed interactor of a *different* viral bait, which is stronger independent evidence. |
-| `visualize.py` | Bar chart of top overall enriched pathways; heatmap of bait x pathway significance (recreates the logic of the paper's Fig. 2b). |
-| `visualize_prediction.py` | Small network diagrams for two illustrative predictions (see below). |
+| [NDEx](https://www.ndexbio.org/), `HEK293T_SARS-CoV-2` (`43803262-…`) and HuRI (`73bc2c06-…`) | The real 332 interactions; the HuRI Y2H graph |
+| [Enrichr](https://maayanlab.cloud/Enrichr/) (via `gseapy`) | Pathway enrichment + coverage audits |
+| [STRING](https://string-db.org/) REST API | Guilt-by-association scoring, null model, thresholds, evidence-channel diagnosis |
+| [UniProt](https://www.uniprot.org/) REST API | Identifier integrity; sequences for the experimental work |
+| [IntAct](https://www.ebi.ac.uk/intact/) via PSICQUIC | Independent external validation; the alternative physical-interaction substrate |
+| [Springer/Nature](https://www.nature.com/) static content | Independent AP-MS (Stukalov 2021) and CRISPR screen supplements |
 
-## Project layout
+Underlying study:
 
-```
-fetch_network.py
-enrichment.py
-predict_missing.py
-visualize.py
-visualize_prediction.py
-validation/                        # 8-test adversarial validation suite (see below)
-  01_identifier_integrity.py ... 07_external_validation.py
-  VALIDATION_REPORT.md             # full per-test verdicts and honest caveats
-data/                              # all CSVs (raw + computed tables)
-  interactome.csv                  # 332 real viral-host interactions
-  pathways_overall.csv             # enrichment across all host proteins
-  pathways_per_bait.csv            # enrichment per viral protein
-  predicted_missing_components.csv # guilt-by-association candidates per bait
-  validation/                      # validation test outputs (CSVs)
-output/                            # all plots
-  overall_top_pathways.png
-  bait_pathway_heatmap.png
-  predicted_nsp13_plk1.png
-  predicted_nsp4_tomm70.png
-  validation/                      # validation test outputs (PNGs)
-```
-
-## Key findings (updated after adversarial validation -- see below)
-
-**Pathway enrichment** recovers the paper's own biology as a sanity check - Reactome's own "SARS-CoV Infections" and "Potential Therapeutics For SARS" terms come up significant, alongside centrosome/mitotic pathways (driven by Nsp13), DNA replication (Nsp1), and mitochondrial protein import (Nsp4, Orf9b, Orf9c). But see the coverage audit below before trusting the ranking too literally.
-
-**Missing-component predictions**, after 8 rounds of adversarial testing (`validation/`, full report in `validation/VALIDATION_REPORT.md`):
-
-- **Nsp13 -> PLK1**: the stronger of the two calls. Not a generic STRING hub (0/25 hits under a degree-preserving null), stays specific under negative controls, and is stable across most of a reasonable confidence/width parameter band. Still **not independently confirmed** - no external SARS-CoV-2 interactome dataset (checked via IntAct) reports PLK1 binding Nsp13; PLK1's only independent SARS-CoV-2 record is with Spike.
-- **Nsp4 -> TOMM70**: originally framed as "cross-validated" because TOMM70 is a real, confirmed Orf9b interactor. That framing **overstated it**. It passes the null model (not a generic hub) but fails the threshold-robustness sweep (only appears at the loosest STRING confidence setting - the exact fishing signature the test is designed to catch), and IntAct shows TOMM70 robustly confirmed across 7 independent papers **always with ORF9b, never with Nsp4**. Downgrade this to a weak, unconfirmed hypothesis, not a validated finding.
-
-Quantitatively, the guilt-by-association method recovers a held-out true interaction 11.1% of the time at 3.5% precision on average, versus 0%/0% for a degree-matched null (real signal, above chance) - but recall varies from 0% (M, Nsp7, Nsp12, Orf9b) to 46.7% (N), so it works well for some baits and not at all for others.
-
-## Caveat
-
-Missing-component predictions are guilt-by-association on generic human PPI/co-expression data (STRING) - they indicate "this protein fits the same complex," not "this protein binds the virus." Treat the ranked list as hypotheses to prioritize for follow-up AP-MS/co-IP, the same way the original paper prioritized drug candidates rather than asserting mechanism outright. Every one of tests 1-7 in the validation suite still lives inside the STRING/Enrichr/UniProt ecosystem - only the external IntAct check (test 8) can actually confirm a prediction rather than merely fail to reject it, and it did not confirm either headline call.
-
-## Validation suite
-
-Two things the original analysis didn't do until challenged: quantify accuracy against a null baseline, and check independent data. Both live in `validation/`:
-
-```bash
-source .venv/bin/activate
-python3 validation/01_identifier_integrity.py     # every gene symbol/UniProt accession checks out
-python3 validation/02_coverage_audit.py           # Reactome only annotates 68.7% of our 332 genes
-python3 validation/03_strip_circular.py           # ranking survives removing SARS-named Reactome terms
-python3 validation/04_threshold_sweep.py          # Nsp13-PLK1 robust; Nsp4-TOMM70 fragile
-python3 validation/05_null_model.py               # neither prediction is a generic hub artifact
-python3 validation/06_holdout_precision_recall.py # 11.1%/3.5% recall/precision vs 0%/0% null
-python3 validation/07_external_validation.py      # neither call independently confirmed via IntAct
-```
-
-Full writeup, per-test verdicts, and honest caveats about the validation's own limits: [`validation/VALIDATION_REPORT.md`](validation/VALIDATION_REPORT.md).
+> Gordon, D.E. et al. **"A SARS-CoV-2 protein interaction map reveals targets for drug repurposing."**
+> *Nature* 583, 459–468 (2020). https://doi.org/10.1038/s41586-020-2286-9

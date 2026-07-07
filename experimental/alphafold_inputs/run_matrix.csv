@@ -1,0 +1,8 @@
+run,complex,role,question,approx_total_residues
+01,Nsp13 + PLK1 (full),TEST,Headline: can the two full-length proteins dock at all?,~1204
+02,Nsp13 + PLK1-PBD (367-603),TEST,Is the interface via PLK1s canonical partner-docking Polo-box domain?,~838
+03,Nsp13 + PLK1-kinase (1-345),TEST,Or via the kinase domain (would suggest substrate-like)?,~946
+04,Nsp13 + CEP135,POS/BRIDGE,Nsp13s CONFIRMED direct prey; if this docks but PLK1 does not => bridged model,~1741
+05,Nsp10 + Nsp16,POS/PIPELINE,Known SARS-CoV-2 heterodimer (solved); validates the pipeline finds true interfaces,~437
+06,Nsp13 + Catalase,NEG/NULL,Unrelated soluble protein; sets the ipTM false-positive floor,~1128
+07,Nsp13 + Pyruvate kinase,NEG/NULL,Second unrelated decoy; the structural null baseline,~1132

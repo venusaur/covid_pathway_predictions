@@ -1,0 +1,3 @@
+bait,candidate,n_candidate_intact_partners,n_bait_preys,real_overlap,overlap_genes,null_mean_overlap,empirical_p
+Nsp13,PLK1,209,40,6,CEP135;CEP43;CNTRL;NIN;NINL;TBK1,1.302,0.0005
+Nsp4,TOMM70,36,8,0,,0.0,1.0

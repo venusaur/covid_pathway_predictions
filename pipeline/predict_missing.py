@@ -8,6 +8,7 @@ binds that viral protein, ranked by STRING confidence to the known preys.
 import time
 import urllib.request
 import urllib.parse
+from io import StringIO
 import pandas as pd
 
 MIN_PREYS = 5
@@ -21,7 +22,6 @@ def string_network(genes, add_nodes=ADD_NODES):
     url = STRING_URL + "?" + urllib.parse.urlencode(params, safe="%0d")
     with urllib.request.urlopen(url) as r:
         text = r.read().decode()
-    from io import StringIO
     return pd.read_csv(StringIO(text), sep="\t")
 
 

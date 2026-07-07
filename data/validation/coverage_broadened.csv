@@ -1,0 +1,7 @@
+library,added_in_this_step,our_genes_covered,coverage_fraction
+GO_Biological_Process_2023,False,304,0.916
+KEGG_2021_Human,False,154,0.464
+Reactome_2022,False,228,0.687
+WikiPathway_2023_Human,True,183,0.551
+BioPlanet_2019,True,198,0.596
+MSigDB_Hallmark_2020,True,122,0.367
