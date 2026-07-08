@@ -13,27 +13,6 @@ an unusually heavy emphasis on **not fooling yourself**: every prediction is put
 
 ---
 
-## Reading guide
-
-The narrative lives in a few documents; read them in this order depending on how deep you want to go.
-
-| Read | What it is | For |
-|---|---|---|
-| **[`report/findings_report.html`](report/findings_report.html)** (or `.pdf`) | The polished, figure-by-figure report: 9 figures, the full 14-test ledger, the experimental program. **The main readable.** | Everyone (start here) |
-| **[`validation/VALIDATION_REPORT.md`](validation/VALIDATION_REPORT.md)** | Per-test verdicts and honest caveats about the validation's own limits | The methodology in detail |
-| **This README** | Overview, repo map, how to run, condensed findings | Orientation + reproduction |
-| **[`experimental/`](experimental/)** docs | Where the surviving hypothesis goes next (wet-lab + bias-free computation) | Follow-up / next steps |
-
-The `experimental/` folder has its own set of readables:
-- [`EXPERIMENTAL_DESIGN.md`](experimental/EXPERIMENTAL_DESIGN.md): the reciprocal co-IP, with direct-vs-bridged disambiguation
-- [`COMPUTATIONAL_PATHWAYS.md`](experimental/COMPUTATIONAL_PATHWAYS.md): remaining bias-free computational avenues
-- [`FUNCTIONAL_GENOMICS.md`](experimental/FUNCTIONAL_GENOMICS.md): PLK1 is not a CRISPR host-factor hit (independent phenotype line)
-- [`ALPHAFOLD_PROTOCOL.md`](experimental/ALPHAFOLD_PROTOCOL.md): the 7-job structural run matrix + interpretation framework
-- [`ALPHAFOLD_TUTORIAL.md`](experimental/ALPHAFOLD_TUTORIAL.md): hands-on, run-it-yourself walkthrough (no experience needed)
-- [`literature/`](experimental/literature/): published-literature dive against the open questions, with a full source log ([`LITERATURE_REVIEW.md`](experimental/literature/LITERATURE_REVIEW.md), [`SOURCES.md`](experimental/literature/SOURCES.md))
-
----
-
 ## Repository structure
 
 ```
