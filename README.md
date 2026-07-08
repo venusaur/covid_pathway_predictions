@@ -65,7 +65,7 @@ All scripts assume the **project root** as the working directory.
 
 ---
 
-## Findings (condensed; full version in the report)
+## Findings (condensed)
 
 **Pathway enrichment** recovers the paper's own biology (centrosome/mitosis on Nsp13, DNA
 replication on Nsp1, mitochondrial import on Nsp4/Orf9b/Orf9c). But GO/KEGG/Reactome annotate only
