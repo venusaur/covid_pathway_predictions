@@ -1,0 +1,23 @@
+﻿GO biological process complete	Homo sapiens - REFLIST (20851)	upload_1 (215)	upload_1 (expected)	upload_1 (over/under)	upload_1 (fold Enrichment)	upload_1 (raw P-value)	upload_1 (FDR)
+"antigen processing and presentation of exogenous peptide antigen via MHC class Ib (GO:0002477)"	2	2	0.02	"+"	96.98	6.14E-04	1.53E-02
+"nerve growth factor production (GO:0032902)"	2	2	0.02	"+"	96.98	6.14E-04	1.53E-02
+"neurotrophin production (GO:0032898)"	2	2	0.02	"+"	96.98	6.14E-04	1.52E-02
+"positive regulation of endoplasmic reticulum calcium ion concentration (GO:0032470)"	2	2	0.02	"+"	96.98	6.14E-04	1.52E-02
+"entry of viral genome into host nucleus through nuclear pore complex via importin (GO:0075506)"	2	2	0.02	"+"	96.98	6.14E-04	1.52E-02
+"positive regulation of telomerase RNA reverse transcriptase activity (GO:1905663)"	2	2	0.02	"+"	96.98	6.14E-04	1.52E-02
+"positive regulation of fast-twitch skeletal muscle fiber contraction (GO:0031448)"	2	2	0.02	"+"	96.98	6.14E-04	1.51E-02
+"regulation of fast-twitch skeletal muscle fiber contraction (GO:0031446)"	2	2	0.02	"+"	96.98	6.14E-04	1.51E-02
+"calcium ion transport from cytosol to endoplasmic reticulum (GO:1903515)"	2	2	0.02	"+"	96.98	6.14E-04	1.51E-02
+"multi-organism nuclear import (GO:1902594)"	4	3	0.04	"+"	72.74	3.56E-05	1.18E-03
+"viral penetration into host nucleus (GO:0075732)"	4	3	0.04	"+"	72.74	3.56E-05	1.18E-03
+"nerve growth factor processing (GO:0032455)"	4	3	0.04	"+"	72.74	3.56E-05	1.18E-03
+"adenine transport (GO:0015853)"	4	3	0.04	"+"	72.74	3.56E-05	1.18E-03
+"proteasomal ubiquitin-independent protein catabolic process (GO:0010499)"	23	16	0.24	"+"	67.47	2.42E-22	3.01E-20
+"histamine secretion by mast cell (GO:0002553)"	3	2	0.03	"+"	64.65	1.02E-03	2.33E-02
+"histamine secretion involved in inflammatory response (GO:0002441)"	3	2	0.03	"+"	64.65	1.02E-03	2.33E-02
+"positive regulation of caveolin-mediated endocytosis (GO:2001288)"	3	2	0.03	"+"	64.65	1.02E-03	2.33E-02
+"histamine production involved in inflammatory response (GO:0002349)"	3	2	0.03	"+"	64.65	1.02E-03	2.32E-02
+"regulation of telomerase RNA reverse transcriptase activity (GO:1905661)"	3	2	0.03	"+"	64.65	1.02E-03	2.32E-02
+"positive regulation of translation in response to endoplasmic reticulum stress (GO:0036493)"	3	2	0.03	"+"	64.65	1.02E-03	2.32E-02
+"calcium ion import into sarcoplasmic reticulum (GO:1990036)"	3	2	0.03	"+"	64.65	1.02E-03	2.31E-02
+"positive regulation of ATPase-coupled calcium transmembrane transporter activity (GO:1901896)"	5	3	0.05	"+"	58.19	5.65E-05	1.80E-03

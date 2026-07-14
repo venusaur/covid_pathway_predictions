@@ -7,9 +7,16 @@ an unusually heavy emphasis on **not fooling yourself**: every prediction is put
 > **Headline:** guilt-by-association network expansion looks validated under internal
 > cross-validation (11.1% recall) but performs at chance against an independent dataset
 > (0.07% vs 0.02% null). The apparent skill is literature-co-mention bias. One prediction
-> survived everything computation can throw at it (**Nsp13 → PLK1 / the centrosome**), reproducing
-> even on an independent physical-interaction network, but it hits a hard confirmation ceiling
-> and now needs a wet-lab co-IP. A second (Nsp4 → TOMM70) was **withdrawn** on scrutiny.
+> (**Nsp13 → PLK1 / the centrosome**) survived every *association-based* test and reproduced on an
+> independent physical-interaction network — but no bias-free line supports a *direct* interaction:
+> no docking motif, not a CRISPR host factor, no co-IP/imaging in four years of literature. The AF3
+> structural run (11 jobs, completed 2026-07-12) is **decisive**: with its pipeline control validated
+> (Nsp10:Nsp16, ipTM 0.79), it excludes a direct interface for **every** candidate — PLK1, CEP135,
+> PRKACA, AKAP9, and the genome-wide SPRINT top hits MCM7/TRAF2 (all ≤ 0.25 vs 0.79). So **no direct
+> human partner for Nsp13 is supported**; the co-IP-validated **PKA (PRKACA)** contact is best read as
+> **indirect/bridged**, and the SPRINT ranks are confirmed as out-of-distribution homology artifacts.
+> The one open lead is a *kinase–substrate* relationship (4 PLK1-consensus sites in Nsp13), a bench
+> assay. A second prediction (Nsp4 → TOMM70) was **withdrawn** on scrutiny.
 
 ---
 
@@ -19,18 +26,20 @@ The narrative lives in a few documents; read them in this order depending on how
 
 | Read | What it is | For |
 |---|---|---|
-| **[`report/findings_report.html`](report/findings_report.html)** (or `.pdf`) | The polished, figure-by-figure report: 9 figures, the full 14-test ledger, the experimental program. **The main readable.** | Everyone (start here) |
-| **[`validation/VALIDATION_REPORT.md`](validation/VALIDATION_REPORT.md)** | Per-test verdicts and honest caveats about the validation's own limits | The methodology in detail |
+| **[`report/HOW_WE_GOT_HERE.md`](report/HOW_WE_GOT_HERE.md)** | **Plain-language walkthrough** — every step in the order we did it, the method behind each, and why it mattered. No virology background needed. | Anyone (easiest start) |
+| **[`report/NSP13_CENTROSOME_SUMMARY.md`](report/NSP13_CENTROSOME_SUMMARY.md)** | **Single-file synthesis of the whole investigation** — network → SPRINT → AF3 (excludes direct binding for all candidates) → PKA relocated to indirect → wet-lab. The fastest complete read. | The technical synthesis |
+| **[`report/MANUSCRIPT_DRAFT.md`](report/MANUSCRIPT_DRAFT.md)** | The whole study as a **publishable negative-result/methods paper**: abstract, methods, results, discussion, limitations, references. | Writing it up |
+| **[`report/q1_prediction_validation_rate.md`](report/q1_prediction_validation_rate.md)** | Interactome-scale companion: what fraction of the 279 PIPE4/SPRINT SARS-CoV-2 predictions validate experimentally (28.3%, 1.53× over null), and the patterns in what holds up | Broader context on prediction yield |
+| **[`report/VALIDATION_REPORT.md`](report/VALIDATION_REPORT.md)** | The 14-test adversarial suite — per-test verdicts and caveats on the validation's own limits | The network methodology in detail |
+| **[`report/FUNCTIONAL_GENOMICS.md`](report/FUNCTIONAL_GENOMICS.md)** · **[`report/EXPERIMENTAL_DESIGN.md`](report/EXPERIMENTAL_DESIGN.md)** | The CRISPR host-factor line, and the PKA/AKAP9-led wet-lab co-IP design | Phenotype line + what's next |
 | **This README** | Overview, repo map, how to run, condensed findings | Orientation + reproduction |
-| **[`experimental/`](experimental/)** docs | Where the surviving hypothesis goes next (wet-lab + bias-free computation) | Follow-up / next steps |
 
-The `experimental/` folder has its own set of readables:
-- [`EXPERIMENTAL_DESIGN.md`](experimental/EXPERIMENTAL_DESIGN.md): the reciprocal co-IP, with direct-vs-bridged disambiguation
-- [`COMPUTATIONAL_PATHWAYS.md`](experimental/COMPUTATIONAL_PATHWAYS.md): remaining bias-free computational avenues
-- [`FUNCTIONAL_GENOMICS.md`](experimental/FUNCTIONAL_GENOMICS.md): PLK1 is not a CRISPR host-factor hit (independent phenotype line)
-- [`ALPHAFOLD_PROTOCOL.md`](experimental/ALPHAFOLD_PROTOCOL.md): the 7-job structural run matrix + interpretation framework
-- [`ALPHAFOLD_TUTORIAL.md`](experimental/ALPHAFOLD_TUTORIAL.md): hands-on, run-it-yourself walkthrough (no experience needed)
-- [`literature/`](experimental/literature/): published-literature dive against the open questions, with a full source log ([`LITERATURE_REVIEW.md`](experimental/literature/LITERATURE_REVIEW.md), [`SOURCES.md`](experimental/literature/SOURCES.md))
+All analysis reports and writeups live in [`report/`](report/). The `experimental/` folder holds the remaining working files:
+- [`alphafold/ALPHAFOLD_PROTOCOL.md`](experimental/alphafold/ALPHAFOLD_PROTOCOL.md): the structural run matrix, interpretation framework, and **the 2026-07-12 results — with the pipeline control validated (0.79), AF3 excludes a direct interface for all 8 candidates (PLK1, CEP135, PRKACA, AKAP9, MCM7, TRAF2); PKA relocated to indirect**
+- [`alphafold/ALPHAFOLD_TUTORIAL.md`](experimental/alphafold/ALPHAFOLD_TUTORIAL.md): hands-on, run-it-yourself AF3 walkthrough (no experience needed)
+- [`alphafold/alphafold_inputs/scorecard.py`](experimental/alphafold/alphafold_inputs/scorecard.py): scores the AF3 output zips against the controls and prints the ipTM scorecard
+- [`plk1_motif_scan.py`](experimental/plk1_motif_scan.py): scans Nsp13 for the PLK1 Polo-box docking + kinase-substrate motifs
+- [`literature/`](experimental/literature/): published-literature dive against the open questions, with a full source log ([`LITERATURE_REVIEW.md`](experimental/literature/LITERATURE_REVIEW.md), [`SOURCE_LIST.md`](experimental/literature/SOURCE_LIST.md), [`SOURCES.md`](experimental/literature/SOURCES.md))
 
 ---
 
@@ -46,15 +55,25 @@ pipeline/               core analysis, run in order from the project root
   visualize.py            overall + per-bait pathway figures
   visualize_prediction.py network diagrams for the two headline predictions
   preflight.py            data-integrity gate (run before enrichment/prediction)
-validation/             the 14-test adversarial suite (01..13 + inline negative controls)
-  VALIDATION_REPORT.md    full per-test writeup
-experimental/           post-ceiling follow-up: co-IP design, AlphaFold, functional genomics
-  alphafold_inputs/       ready-to-run FASTAs + query_sequences.txt
-data/                   inputs + all computed tables
+validation/             the 14-test adversarial suite scripts (01..13 + inline negative controls)
+experimental/           post-ceiling follow-up: AlphaFold, motif scan, literature
+  alphafold/              all AlphaFold3 work:
+    ALPHAFOLD_PROTOCOL.md   run matrix, interpretation, results
+    ALPHAFOLD_TUTORIAL.md   hands-on run-it-yourself guide
+    alphafold_inputs/       FASTAs + af3_server_entries.txt + scorecard.py
+    alphafold_outputs/      AF3 result zips + scored metrics
+  plk1_motif_scan.py      Nsp13 PLK1-motif scan
+  literature/             published-literature dive + source logs
+data/                   inputs + all computed tables (incl. q1_validation/)
   validation/             per-test CSV outputs
 output/                 all figures (PNG)
   validation/             per-test figures
-report/                 the polished findings report (HTML + PDF)
+report/                 all analysis reports & writeups:
+  HOW_WE_GOT_HERE.md, NSP13_CENTROSOME_SUMMARY.md, MANUSCRIPT_DRAFT.md,
+  VALIDATION_REPORT.md, sprint_nsp13_plk1_validation.md,
+  q1_prediction_validation_rate.md, FUNCTIONAL_GENOMICS.md,
+  EXPERIMENTAL_DESIGN.md, SPRINT_DATA.md
+SPRINT_DATA/            copied SPRINT scan results + README
 ```
 
 Everything runs against **live public APIs** (no credentials), so scripts need internet access
@@ -103,13 +122,21 @@ method rewards fame, not evidence, so it looks good on already-famous proteins a
 biology.
 
 **The two headline predictions:**
-- **Nsp13 → PLK1**: survived every internal test *and* reproduced on IntAct's independent
-  physical-interaction graph (6/40 Nsp13 preys are direct PLK1 partners, p=0.0005). Not a
-  STRING/text-mining artifact. But it's not directly confirmed in any viral interactome, HuRI
-  (unbiased Y2H) is blind to the centrosome so can't adjudicate it, and it's not a CRISPR
-  host-factor hit, so the biology, if real, is centrosome/cell-cycle perturbation, not an
-  essential host factor. Motif analysis (no PLK1 docking motif) points to a **bridged model**
-  (Nsp13 → CEP scaffolds → PLK1). Confirmation now requires a wet-lab co-IP.
+- **Nsp13 → PLK1 — direct interaction unsupported; redirected to PKA/AKAP9.** It survived every
+  *association-based* test and reproduced on IntAct's independent physical-interaction graph
+  (6/40 Nsp13 preys are direct PLK1 partners, p=0.0005) — not a STRING/text-mining artifact. But no
+  bias-free line supports a *direct* contact: no PLK1 docking motif in Nsp13, not a CRISPR
+  host-factor hit, and no co-IP/imaging in four years places Nsp13 at PLK1 or the centrosome. The
+  AF3 structural run meant to settle it is **decisive** — with its pipeline control validated
+  (Nsp10:Nsp16, 0.79), it scores every Nsp13 pair (PLK1×3, CEP135, PRKACA, AKAP9, and the genome-wide
+  SPRINT top hits MCM7/TRAF2) at or below the 0.21 decoy floor. The old "AF3 is blind to Nsp13" read
+  does not survive that control: CEP135/PRKACA are co-IP/association evidence, which does not prove a
+  *direct* interface, so their nulls are expected for indirect partners. Net: **no direct human
+  partner for Nsp13 is supported.** The one route to the centrosome with an *experimentally validated*
+  Nsp13 contact is **PKA** (Nsp13↔PRKACA, Wang et al., PMC11019953; PKA anchored via AKAP9, a Gordon
+  prey) — but AF3's null relocates it to an **indirect/bridged** association, directness now an open
+  question. **The wet-lab experiments are now decisive**: a direct-vs-bridged co-IP/reconstitution for
+  PKA, and an in-vitro kinase assay on Nsp13's four PLK1-consensus sites (the one open lead).
 - **Nsp4 → TOMM70**: **withdrawn.** Threshold-fragile, TOMM70's real viral partner is ORF9b (7
   papers), and it fails to reproduce on IntAct. Four independent lines agree.
 
@@ -117,6 +144,30 @@ biology.
 virus." Treat them as hypotheses to prioritize, exactly as the original paper treated its drug
 candidates. Only checks against independent data can *confirm* rather than fail-to-reject;
 none did.
+
+**Do the predictions hold up at scale?** Beyond the two headline cases, we audited a whole published
+PIPE4/SPRINT SARS-CoV-2 predicted interactome (279 high-confidence pairs) against experimental
+evidence: **28.3% are experimentally supported, 1.53× over a viral-protein-matched null (p<0.0005)**,
+real but modest. SPRINT's confidence tracks validation (19% to 39% across score tertiles) while
+PIPE4's is flat, so SPRINT-ranked or two-method-consensus filtering is the practical lever. Full
+audit: [`report/q1_prediction_validation_rate.md`](report/q1_prediction_validation_rate.md).
+
+---
+
+## Future direction
+
+The computational program is complete: no direct human partner for Nsp13 is supported, and the
+interactome-scale audit shows why convergent predictors mislead on viral baits (shared homology and
+hub signal, not interfaces). Three tracks remain, in priority order:
+
+1. **Publish the negative.** `report/MANUSCRIPT_DRAFT.md` is a near-complete negative-result/methods
+   paper; the remaining gaps are an abstract and turning the figure legends into panels.
+2. **Take the one live lead to the bench.** Nsp13 carries four PLK1 kinase-substrate consensus sites
+   (T144, T199, S377, S385), a *kinase–substrate* relationship AF3 cannot see; an in-vitro PLK1
+   kinase assay tests it. Separately, a direct-vs-bridged co-IP and reconstitution settles whether the
+   co-IP-validated PKA contact is direct (`report/EXPERIMENTAL_DESIGN.md`).
+3. **Reuse the machinery on a new target.** The validated-control AF3 scorecard, the genome-wide
+   SPRINT scan, and the validation-rate audit transfer to any other viral protein with no rework.
 
 ---
 

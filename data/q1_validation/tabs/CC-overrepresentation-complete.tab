@@ -1,0 +1,145 @@
+﻿GO cellular component complete	Homo sapiens - REFLIST (20851)	upload_1 (215)	upload_1 (expected)	upload_1 (over/under)	upload_1 (fold Enrichment)	upload_1 (raw P-value)	upload_1 (FDR)
+"MHC class Ib protein complex (GO:0032398)"	2	2	0.02	"+"	96.98	6.14E-04	1.13E-02
+"proteasome core complex, alpha-subunit complex (GO:0019773)"	8	8	0.08	"+"	96.98	1.24E-12	8.33E-11
+"proteasome activator complex (GO:0008537)"	3	3	0.03	"+"	96.98	2.05E-05	5.04E-04
+"spermatoproteasome complex (GO:1990111)"	5	4	0.05	"+"	77.59	1.28E-06	4.02E-05
+"phosphopyruvate hydratase complex (GO:0000015)"	4	3	0.04	"+"	72.74	3.56E-05	8.64E-04
+"proteasome core complex (GO:0005839)"	21	15	0.22	"+"	69.27	3.82E-21	5.50E-19
+"proteasome core complex, beta-subunit complex (GO:0019774)"	11	7	0.11	"+"	61.72	3.03E-10	1.60E-08
+"proteasome regulatory particle, base subcomplex (GO:0008540)"	12	7	0.12	"+"	56.57	4.75E-10	2.33E-08
+"MHC class I protein complex (GO:0042612)"	9	5	0.09	"+"	53.88	1.96E-07	6.82E-06
+"eukaryotic translation elongation factor 1 complex (GO:0005853)"	4	2	0.04	"+"	48.49	1.51E-03	2.44E-02
+"cytosolic proteasome complex (GO:0031597)"	9	4	0.09	"+"	43.1	7.02E-06	1.94E-04
+"protein phosphatase type 1 complex (GO:0000164)"	9	4	0.09	"+"	43.1	7.02E-06	1.91E-04
+"PTW/PP1 phosphatase complex (GO:0072357)"	7	3	0.07	"+"	41.56	1.19E-04	2.67E-03
+"proteasome complex (GO:0000502)"	65	26	0.67	"+"	38.79	8.25E-31	3.32E-28
+"proteasome accessory complex (GO:0022624)"	25	10	0.26	"+"	38.79	1.46E-12	9.49E-11
+"endopeptidase complex (GO:1905369)"	66	26	0.68	"+"	38.2	1.14E-30	3.83E-28
+"CD40 receptor complex (GO:0035631)"	11	4	0.11	"+"	35.27	1.32E-05	3.36E-04
+"platelet dense tubular network membrane (GO:0031095)"	9	3	0.09	"+"	32.33	2.15E-04	4.62E-03
+"cytoplasmic side of lysosomal membrane (GO:0098574)"	6	2	0.06	"+"	32.33	2.79E-03	4.01E-02
+"proteasome regulatory particle (GO:0005838)"	22	7	0.23	"+"	30.86	1.35E-08	5.91E-07
+"peptidase complex (GO:1905368)"	91	26	0.94	"+"	27.71	1.18E-27	2.64E-25
+"glycogen granule (GO:0042587)"	7	2	0.07	"+"	27.71	3.56E-03	4.98E-02
+"platelet dense tubular network (GO:0031094)"	11	3	0.11	"+"	26.45	3.51E-04	7.01E-03
+"pseudopodium (GO:0031143)"	17	4	0.18	"+"	22.82	5.51E-05	1.31E-03
+"postsynaptic specialization, intracellular component (GO:0099091)"	22	5	0.23	"+"	22.04	7.11E-06	1.91E-04
+"integral component of lumenal side of endoplasmic reticulum membrane (GO:0071556)"	29	6	0.3	"+"	20.07	1.34E-06	4.14E-05
+"lumenal side of endoplasmic reticulum membrane (GO:0098553)"	29	6	0.3	"+"	20.07	1.34E-06	4.08E-05
+"MHC protein complex (GO:0042611)"	28	5	0.29	"+"	17.32	1.99E-05	4.94E-04
+"COP9 signalosome (GO:0008180)"	36	6	0.37	"+"	16.16	4.07E-06	1.21E-04
+"lumenal side of membrane (GO:0098576)"	36	6	0.37	"+"	16.16	4.07E-06	1.19E-04
+"extrinsic component of cytoplasmic side of plasma membrane (GO:0031234)"	93	15	0.96	"+"	15.64	3.15E-13	2.19E-11
+"phosphatidylinositol 3-kinase complex (GO:0005942)"	28	4	0.29	"+"	13.85	3.03E-04	6.17E-03
+"pore complex (GO:0046930)"	23	3	0.24	"+"	12.65	2.29E-03	3.45E-02
+"cytoplasmic side of plasma membrane (GO:0009898)"	155	20	1.6	"+"	12.51	1.49E-15	1.43E-13
+"cytoplasmic side of membrane (GO:0098562)"	182	22	1.88	"+"	11.72	1.86E-16	1.87E-14
+"smooth endoplasmic reticulum (GO:0005790)"	35	4	0.36	"+"	11.08	6.56E-04	1.18E-02
+"extrinsic component of plasma membrane (GO:0019897)"	165	17	1.7	"+"	9.99	5.84E-12	3.57E-10
+"protein serine/threonine phosphatase complex (GO:0008287)"	45	4	0.46	"+"	8.62	1.56E-03	2.50E-02
+"phosphatase complex (GO:1903293)"	45	4	0.46	"+"	8.62	1.56E-03	2.48E-02
+"nuclear pore (GO:0005643)"	91	8	0.94	"+"	8.53	7.98E-06	2.06E-04
+"ficolin-1-rich granule (GO:0101002)"	124	10	1.28	"+"	7.82	1.21E-06	3.92E-05
+"ficolin-1-rich granule lumen (GO:1904813)"	124	10	1.28	"+"	7.82	1.21E-06	3.86E-05
+"extrinsic component of membrane (GO:0019898)"	297	22	3.06	"+"	7.18	1.93E-12	1.22E-10
+"catalytic step 2 spliceosome (GO:0071013)"	86	6	0.89	"+"	6.77	3.62E-04	7.16E-03
+"melanosome (GO:0042470)"	106	7	1.09	"+"	6.4	1.62E-04	3.58E-03
+"pigment granule (GO:0048770)"	106	7	1.09	"+"	6.4	1.62E-04	3.54E-03
+"host cellular component (GO:0018995)"	76	5	0.78	"+"	6.38	1.44E-03	2.38E-02
+"phagocytic vesicle membrane (GO:0030670)"	76	5	0.78	"+"	6.38	1.44E-03	2.37E-02
+"host cell (GO:0043657)"	76	5	0.78	"+"	6.38	1.44E-03	2.35E-02
+"vesicle lumen (GO:0031983)"	326	21	3.36	"+"	6.25	7.34E-11	4.23E-09
+"secretory granule lumen (GO:0034774)"	320	20	3.3	"+"	6.06	3.51E-10	1.81E-08
+"cytoplasmic vesicle lumen (GO:0060205)"	324	20	3.34	"+"	5.99	4.30E-10	2.17E-08
+"inclusion body (GO:0016234)"	82	5	0.85	"+"	5.91	1.98E-03	3.07E-02
+"recycling endosome membrane (GO:0055038)"	86	5	0.89	"+"	5.64	2.41E-03	3.60E-02
+"P-body (GO:0000932)"	87	5	0.9	"+"	5.57	2.53E-03	3.75E-02
+"actin filament (GO:0005884)"	123	7	1.27	"+"	5.52	3.83E-04	7.41E-03
+"membrane raft (GO:0045121)"	322	18	3.32	"+"	5.42	1.44E-08	6.16E-07
+"membrane microdomain (GO:0098857)"	323	18	3.33	"+"	5.4	1.50E-08	6.31E-07
+"azurophil granule lumen (GO:0035578)"	90	5	0.93	"+"	5.39	2.91E-03	4.13E-02
+"membrane region (GO:0098589)"	336	18	3.46	"+"	5.2	2.67E-08	1.01E-06
+"azurophil granule (GO:0042582)"	154	8	1.59	"+"	5.04	2.66E-04	5.53E-03
+"primary lysosome (GO:0005766)"	154	8	1.59	"+"	5.04	2.66E-04	5.47E-03
+"side of membrane (GO:0098552)"	626	32	6.45	"+"	4.96	2.18E-13	1.57E-11
+"integral component of endoplasmic reticulum membrane (GO:0030176)"	162	8	1.67	"+"	4.79	3.68E-04	7.20E-03
+"blood microparticle (GO:0072562)"	143	7	1.47	"+"	4.75	8.98E-04	1.59E-02
+"focal adhesion (GO:0005925)"	409	20	4.22	"+"	4.74	1.87E-08	7.68E-07
+"cell-substrate adherens junction (GO:0005924)"	412	20	4.25	"+"	4.71	2.10E-08	8.45E-07
+"cell-substrate junction (GO:0030055)"	416	20	4.29	"+"	4.66	2.44E-08	9.46E-07
+"intrinsic component of endoplasmic reticulum membrane (GO:0031227)"	170	8	1.75	"+"	4.56	5.00E-04	9.33E-03
+"spliceosomal complex (GO:0005681)"	192	9	1.98	"+"	4.55	2.31E-04	4.85E-03
+"glutamatergic synapse (GO:0098978)"	366	17	3.77	"+"	4.5	4.53E-07	1.52E-05
+"ruffle (GO:0001726)"	176	8	1.81	"+"	4.41	6.22E-04	1.14E-02
+"vacuolar lumen (GO:0005775)"	177	8	1.83	"+"	4.38	6.45E-04	1.17E-02
+"extracellular exosome (GO:0070062)"	2098	91	21.63	"+"	4.21	3.25E-34	3.28E-31
+"adherens junction (GO:0005912)"	555	24	5.72	"+"	4.19	6.52E-09	3.13E-07
+"extracellular vesicle (GO:1903561)"	2119	91	21.85	"+"	4.16	6.89E-34	4.63E-31
+"extracellular organelle (GO:0043230)"	2124	91	21.9	"+"	4.16	8.23E-34	4.15E-31
+"anchoring junction (GO:0070161)"	571	24	5.89	"+"	4.08	1.10E-08	5.04E-07
+"catalytic complex (GO:1902494)"	1386	58	14.29	"+"	4.06	4.60E-20	5.45E-18
+"dendritic spine (GO:0043197)"	173	7	1.78	"+"	3.92	2.55E-03	3.75E-02
+"neuron spine (GO:0044309)"	175	7	1.8	"+"	3.88	2.71E-03	3.93E-02
+"sarcomere (GO:0030017)"	207	8	2.13	"+"	3.75	1.69E-03	2.66E-02
+"myofibril (GO:0030016)"	228	8	2.35	"+"	3.4	3.01E-03	4.25E-02
+"postsynaptic specialization (GO:0099572)"	372	13	3.84	"+"	3.39	1.74E-04	3.77E-03
+"nuclear envelope (GO:0005635)"	476	16	4.91	"+"	3.26	4.88E-05	1.17E-03
+"secretory granule (GO:0030141)"	843	28	8.69	"+"	3.22	7.99E-08	2.87E-06
+"cell-cell junction (GO:0005911)"	398	13	4.1	"+"	3.17	3.27E-04	6.59E-03
+"postsynapse (GO:0098794)"	644	21	6.64	"+"	3.16	4.94E-06	1.42E-04
+"neuron to neuron synapse (GO:0098984)"	375	12	3.87	"+"	3.1	6.59E-04	1.17E-02
+"vesicle (GO:0031982)"	3877	124	39.98	"+"	3.1	1.55E-36	3.13E-33
+"postsynaptic density (GO:0014069)"	347	11	3.58	"+"	3.07	1.18E-03	2.05E-02
+"asymmetric synapse (GO:0032279)"	351	11	3.62	"+"	3.04	1.29E-03	2.19E-02
+"lytic vacuole (GO:0000323)"	706	22	7.28	"+"	3.02	5.86E-06	1.66E-04
+"lysosome (GO:0005764)"	706	22	7.28	"+"	3.02	5.86E-06	1.64E-04
+"endosome membrane (GO:0010008)"	488	15	5.03	"+"	2.98	2.17E-04	4.60E-03
+"extracellular space (GO:0005615)"	3343	101	34.47	"+"	2.93	6.13E-26	1.24E-23
+"secretory vesicle (GO:0099503)"	1011	30	10.42	"+"	2.88	2.81E-07	9.60E-06
+"integral component of organelle membrane (GO:0031301)"	373	11	3.85	"+"	2.86	2.05E-03	3.16E-02
+"endosome (GO:0005768)"	944	27	9.73	"+"	2.77	2.31E-06	6.94E-05
+"vacuole (GO:0005773)"	807	23	8.32	"+"	2.76	1.45E-05	3.65E-04
+"synapse (GO:0045202)"	1374	39	14.17	"+"	2.75	1.13E-08	5.06E-07
+"cell junction (GO:0030054)"	1365	38	14.07	"+"	2.7	2.97E-08	1.09E-06
+"cytoplasmic vesicle (GO:0031410)"	2383	66	24.57	"+"	2.69	4.46E-14	3.45E-12
+"intracellular vesicle (GO:0097708)"	2386	66	24.6	"+"	2.68	4.72E-14	3.53E-12
+"actin cytoskeleton (GO:0015629)"	519	14	5.35	"+"	2.62	1.21E-03	2.08E-02
+"ribonucleoprotein complex (GO:1990904)"	699	18	7.21	"+"	2.5	4.24E-04	8.15E-03
+"cell body (GO:0044297)"	590	15	6.08	"+"	2.47	1.44E-03	2.40E-02
+"cytosol (GO:0005829)"	5199	132	53.61	"+"	2.46	3.18E-29	9.15E-27
+"whole membrane (GO:0098805)"	1701	42	17.54	"+"	2.39	1.39E-07	4.93E-06
+"extracellular region (GO:0005576)"	4380	107	45.16	"+"	2.37	2.02E-20	2.71E-18
+"plasma membrane protein complex (GO:0098797)"	701	17	7.23	"+"	2.35	1.72E-03	2.69E-02
+"vesicle membrane (GO:0012506)"	803	19	8.28	"+"	2.29	9.85E-04	1.73E-02
+"perinuclear region of cytoplasm (GO:0048471)"	734	17	7.57	"+"	2.25	2.27E-03	3.44E-02
+"envelope (GO:0031975)"	1212	28	12.5	"+"	2.24	9.69E-05	2.24E-03
+"organelle envelope (GO:0031967)"	1212	28	12.5	"+"	2.24	9.69E-05	2.22E-03
+"membrane protein complex (GO:0098796)"	1305	29	13.46	"+"	2.16	1.08E-04	2.44E-03
+"cell surface (GO:0009986)"	950	21	9.8	"+"	2.14	1.42E-03	2.39E-02
+"protein-containing complex (GO:0032991)"	5484	119	56.55	"+"	2.1	3.75E-19	3.97E-17
+"nucleoplasm (GO:0005654)"	3982	84	41.06	"+"	2.05	1.37E-11	8.11E-10
+"endomembrane system (GO:0012505)"	4563	90	47.05	"+"	1.91	7.67E-11	4.29E-09
+"organelle lumen (GO:0043233)"	5870	114	60.53	"+"	1.88	3.59E-14	3.15E-12
+"intracellular organelle lumen (GO:0070013)"	5870	114	60.53	"+"	1.88	3.59E-14	3.02E-12
+"membrane-enclosed lumen (GO:0031974)"	5870	114	60.53	"+"	1.88	3.59E-14	2.90E-12
+"endoplasmic reticulum (GO:0005783)"	1434	27	14.79	"+"	1.83	2.66E-03	3.88E-02
+"nuclear lumen (GO:0031981)"	4750	87	48.98	"+"	1.78	1.06E-08	4.99E-07
+"plasma membrane bounded cell projection (GO:0120025)"	2197	40	22.65	"+"	1.77	4.78E-04	9.00E-03
+"cell projection (GO:0042995)"	2285	41	23.56	"+"	1.74	4.25E-04	8.08E-03
+"nucleus (GO:0005634)"	7498	134	77.31	"+"	1.73	9.07E-15	8.31E-13
+"bounding membrane of organelle (GO:0098588)"	2104	36	21.69	"+"	1.66	2.89E-03	4.13E-02
+"plasma membrane (GO:0005886)"	5738	98	59.17	"+"	1.66	2.23E-08	8.82E-07
+"organelle membrane (GO:0031090)"	3552	60	36.63	"+"	1.64	7.92E-05	1.86E-03
+"cell periphery (GO:0071944)"	5868	99	60.51	"+"	1.64	2.97E-08	1.11E-06
+"cytoplasm (GO:0005737)"	11476	193	118.33	"+"	1.63	3.27E-28	8.23E-26
+"intracellular membrane-bounded organelle (GO:0043231)"	10886	177	112.25	"+"	1.58	5.57E-20	6.24E-18
+"membrane-bounded organelle (GO:0043227)"	12584	196	129.76	"+"	1.51	5.15E-24	9.43E-22
+"intracellular organelle (GO:0043229)"	12678	192	130.73	"+"	1.47	2.21E-20	2.79E-18
+"membrane (GO:0016020)"	9854	148	101.61	"+"	1.46	2.41E-10	1.31E-08
+"organelle (GO:0043226)"	13710	201	141.37	"+"	1.42	5.76E-22	9.67E-20
+"non-membrane-bounded organelle (GO:0043228)"	4947	72	51.01	"+"	1.41	1.24E-03	2.12E-02
+"intracellular non-membrane-bounded organelle (GO:0043232)"	4937	71	50.91	"+"	1.39	2.12E-03	3.23E-02
+"intracellular (GO:0005622)"	14473	205	149.23	"+"	1.37	2.53E-21	3.93E-19
+"cellular anatomical entity (GO:0110165)"	18628	211	192.08	"+"	1.1	1.07E-06	3.54E-05
+"cellular_component (GO:0005575)"	18818	211	194.04	"+"	1.09	7.22E-06	1.89E-04
+"Unclassified (UNCLASSIFIED)"	2033	4	20.96	"-"	0.19	7.22E-06	1.92E-04

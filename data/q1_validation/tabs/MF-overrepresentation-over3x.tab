@@ -1,0 +1,42 @@
+﻿PANTHER GO-Slim Molecular Function	Homo sapiens - REFLIST (20851)	Predicted (215)	Predicted (expected)	Predicted(over/under)	Predicted (fold Enrichment)	Predicted (raw P-value)	Predicted (FDR)
+"peptidase activator activity (GO:0016504)"	6	4	0.06	"+"	64.65	2.11E-06	4.88E-05
+"tumor necrosis factor receptor superfamily binding (GO:0032813)"	9	5	0.09	"+"	53.88	1.96E-07	6.53E-06
+"TBP-class protein binding (GO:0017025)"	9	3	0.09	"+"	32.33	2.15E-04	3.28E-03
+"ubiquitin-like protein ligase binding (GO:0044389)"	46	14	0.47	"+"	29.52	9.96E-16	1.77E-13
+"protein tyrosine kinase activity (GO:0004713)"	61	17	0.63	"+"	27.03	2.71E-18	7.20E-16
+"ubiquitin protein ligase binding (GO:0031625)"	41	9	0.42	"+"	21.29	1.77E-09	1.05E-07
+"signal sequence binding (GO:0005048)"	33	7	0.34	"+"	20.57	1.47E-07	6.00E-06
+"heat shock protein binding (GO:0031072)"	30	5	0.31	"+"	16.16	2.67E-05	4.91E-04
+"ATP binding (GO:0005524)"	40	5	0.41	"+"	12.12	9.26E-05	1.54E-03
+"unfolded protein binding (GO:0051082)"	58	6	0.6	"+"	10.03	4.83E-05	8.28E-04
+"endopeptidase activity (GO:0004175)"	307	24	3.17	"+"	7.58	6.01E-14	5.33E-12
+"ATPase activity, coupled (GO:0042623)"	117	8	1.21	"+"	6.63	4.37E-05	7.75E-04
+"peptidase activity (GO:0008233)"	415	28	4.28	"+"	6.54	1.35E-14	1.43E-12
+"peptidase activity, acting on L-amino acid peptides (GO:0070011)"	407	27	4.2	"+"	6.43	6.06E-14	4.61E-12
+"ubiquitin-protein transferase activity (GO:0004842)"	239	14	2.46	"+"	5.68	3.57E-07	1.00E-05
+"peptide binding (GO:0042277)"	194	11	2	"+"	5.5	8.82E-06	1.80E-04
+"ubiquitin-like protein transferase activity (GO:0019787)"	249	14	2.57	"+"	5.45	5.70E-07	1.52E-05
+"ubiquitin protein ligase activity (GO:0061630)"	145	8	1.5	"+"	5.35	1.80E-04	2.91E-03
+"cytokine receptor binding (GO:0005126)"	93	5	0.96	"+"	5.21	3.33E-03	4.43E-02
+"ubiquitin-like protein ligase activity (GO:0061659)"	149	8	1.54	"+"	5.21	2.15E-04	3.36E-03
+"amide binding (GO:0033218)"	211	11	2.18	"+"	5.06	1.86E-05	3.67E-04
+"catalytic activity, acting on a protein (GO:0140096)"	1400	65	14.44	"+"	4.5	5.29E-25	2.81E-22
+"ATPase activity (GO:0016887)"	262	12	2.7	"+"	4.44	2.65E-05	5.04E-04
+"phosphotransferase activity, alcohol group as acceptor (GO:0016773)"	519	21	5.35	"+"	3.92	1.77E-07	6.28E-06
+"protein kinase activity (GO:0004672)"	435	17	4.49	"+"	3.79	4.31E-06	9.56E-05
+"enzyme binding (GO:0019899)"	610	23	6.29	"+"	3.66	1.50E-07	5.71E-06
+"kinase activity (GO:0016301)"	559	21	5.76	"+"	3.64	5.71E-07	1.45E-05
+"signaling receptor binding (GO:0005102)"	629	23	6.49	"+"	3.55	2.53E-07	7.49E-06
+"transferase activity, transferring phosphorus-containing groups (GO:0016772)"	665	21	6.86	"+"	3.06	7.94E-06	1.69E-04
+""				""			
+""				""			
+""				""			
+""				""			
+""				""			
+""				""			
+""				""			
+""				""			
+""				""			
+""				""			
+""				""			
+""				""			

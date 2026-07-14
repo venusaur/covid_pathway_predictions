@@ -1,0 +1,8 @@
+SARS-CoV-2_protein	human_protein	PIPE2_score	matrix_max	runtime	sw_score_PIPE3	sw_score_PIPE4	ps_site1_height	ps_site1_CoV_start	ps_site1_CoV_end	ps_site1_human_start	ps_site1_human_end	ps_site2_height	ps_site2_CoV_start	ps_site2_CoV_end	ps_site2_human_start	ps_site2_human_end	ps_site3_height	ps_site3_CoV_start	ps_site3_CoV_end	ps_site3_human_start	ps_site3_human_end
+"P0DTC6"	"P46100"	0.00000000	2	0.01632905	0.60848593	0.21711628	2	15	35	0	2492	1	0	61	0	2492	-1	-1	-1	-1	-1
+"P0DTC6"	"Q9UER7"	0.00000000	2	0.00711489	0.58685027	0.20698765	2	15	35	0	740	1	0	61	0	740	-1	-1	-1	-1	-1
+"P0DTC6"	"P17066"	0.00000000	1	0.00800395	0.46836844	0.08894231	1	0	61	0	643	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1
+"P0DTC6"	"P34931"	0.00000000	1	0.00675082	0.45724238	0.08716123	1	0	61	0	641	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1
+"P0DTC6"	"P48741"	0.00000000	1	0.00634980	0.45005473	0.08613848	1	0	61	0	367	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1
+"P0DTC6"	"P54652"	0.00000000	1	0.00657701	0.44619816	0.08502304	1	0	61	0	639	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1
+"P0DTC6"	"P13760"	0.00000000	1	0.00902295	0.43710764	0.08283571	1	0	61	0	641	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1
